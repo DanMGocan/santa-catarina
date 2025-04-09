@@ -11,5 +11,11 @@ config_version=5
 [application]
 
 config/name="Santa Catarina"
+run/main_scene="uid://xbk5g1ix70h"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+anti_aliasing/quality/msaa_2d=3
+environment/defaults/default_clear_color=Color(0, 0.191996, 0.213704, 1)
