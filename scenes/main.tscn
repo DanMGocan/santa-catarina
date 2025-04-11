@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://v10e234ir7q6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sgp6g"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+material = SubResource("CanvasItemMaterial_sgp6g")

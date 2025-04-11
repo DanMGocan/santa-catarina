@@ -6,6 +6,7 @@
 [node name="Clock" type="Node2D"]
 position = Vector2(576, 324)
 script = ExtResource("1_kig64")
+start_hour = -4
 
 [node name="Face" type="Sprite2D" parent="."]
 texture = ExtResource("1_venu5")
