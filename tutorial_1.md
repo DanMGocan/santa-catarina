@@ -27,3 +27,4 @@ FUNCTIONS:
 CONCEPTS:
 	Godot updates as quickly as the system will allow it. The _process() function is called MAX FPS times per second. 
 	
+Nodes can send signals when certain conditions are met. 

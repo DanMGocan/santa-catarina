@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Santa Catarina"
-run/main_scene="uid://xbk5g1ix70h"
+run/main_scene="uid://v10e234ir7q6"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [rendering]
 

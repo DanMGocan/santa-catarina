@@ -1,3 +1,4 @@
+class_name Clock
 extends Node2D
 
 # Values are initialized with 0, 1, 2, 3, their place in the enumeration
@@ -9,7 +10,7 @@ enum StartTimeMode {
 		}
 
 
-@export var timescale = 20.0
+@export var timescale = 2000000.0
 
 # The @export annotation exports this variable to the Inspector
 # The inspector value overrides that value here 
@@ -39,22 +40,18 @@ var total_seconds := 0.0
 # This function is called automatically when the node enters the scene.
 # This means that total_seconds is assigned a value. 
 func _ready() -> void:
-	
 	if start_time == StartTimeMode.RANDOM_TIME:
-		total_seconds = randf_range(0.0, 43200)
+		total_seconds = randf_range(0.0, 43200.0)
 	else:
 		if start_time != StartTimeMode.FIXED_TIME:
 			var current_time := Time.get_time_dict_from_system()
 			total_seconds = float(
-				current_time.second +
-				current_time.minute * 60 + 
-				current_time.hour * 3600
+					current_time.second +
+					current_time.minute * 60 +
+					current_time.hour * 3600
 			)
-		else:
-			if start_time == StartTimeMode.OFFSET_TIME:
-				total_seconds += start_hour * 3600 + start_minute * 60 + start_second		
-			else:
-				total_seconds = start_hour * 3600 + start_minute * 60 + start_second		
+		if start_time != StartTimeMode.SYSTEM_TIME:
+			total_seconds += start_second + start_minute * 60 + start_hour * 3600
 
 func _process(delta: float) -> void:
 	total_seconds += delta * timescale

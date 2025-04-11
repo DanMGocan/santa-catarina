@@ -1,19 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://xbk5g1ix70h"]
+[gd_scene load_steps=4 format=3 uid="uid://xbk5g1ix70h"]
 
-[ext_resource type="Script" uid="uid://b2eag71vh2dcn" path="res://clock.gd" id="1_kig64"]
-[ext_resource type="Texture2D" uid="uid://dg4gusw5w4i13" path="res://resources/textures/new_gradient_texture_2d.tres" id="1_venu5"]
+[ext_resource type="Script" uid="uid://b2eag71vh2dcn" path="res://clock.gd" id="1_y58p0"]
+[ext_resource type="Texture2D" uid="uid://dg4gusw5w4i13" path="res://resources/textures/new_gradient_texture_2d.tres" id="2_eptq3"]
 
-[node name="Clock" type="Node2D"]
-position = Vector2(576, 324)
-script = ExtResource("1_kig64")
+[sub_resource type="CircleShape2D" id="CircleShape2D_y58p0"]
+radius = 25.6
+
+[node name="Clock" type="RigidBody2D"]
+position = Vector2(600, 336)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_y58p0")
+timescale = 4.0
+start_time = 3
 start_hour = -4
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y58p0")
+one_way_collision_margin = 0.0
+debug_color = Color(0, 0.6, 0.701961, 0.780392)
+
 [node name="Face" type="Sprite2D" parent="."]
-texture = ExtResource("1_venu5")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_eptq3")
 
 [node name="Hour0" type="Polygon2D" parent="Face"]
 position = Vector2(0, 4)
-color = Color(0.276891, 0.20428, 0.594986, 1)
+color = Color(1, 0.804943, 0.208596, 1)
 polygon = PackedVector2Array(-16, -120, 16, -120, 0, -80)
 
 [node name="Hour1" type="Polygon2D" parent="Face"]
@@ -72,14 +84,16 @@ color = Color(0.540114, 9.16891e-06, 0.250833, 1)
 polygon = PackedVector2Array(-8, -120, 8, -120, 0, -104)
 
 [node name="HourArm" type="Polygon2D" parent="."]
-scale = Vector2(1, 0.769231)
+scale = Vector2(0.26, 0.2)
 color = Color(0.646114, 0, 0.28173, 1)
 polygon = PackedVector2Array(0, 10.4, 8, 10.4, 8, 20.8, 8, -80, 0, -104, -8, -80, -8, 20.8)
 
 [node name="MinuteArm" type="Polygon2D" parent="."]
+scale = Vector2(0.26, 0.2)
 color = Color(0.177713, 0.228093, 0.553214, 1)
 polygon = PackedVector2Array(0, -104, -8, -80, -8, 8, 0, 8, 8, 16, 8, -80)
 
 [node name="SecondsArm" type="Polygon2D" parent="."]
+scale = Vector2(0.26, 0.2)
 color = Color(0.853504, 0.532816, 0.18492, 1)
 polygon = PackedVector2Array(0, 16, -3, 23, -3, -12, -3, -47, -3, -95, 0, -104, 3, -95, 3, -69, 3, -25, 3, 19)
